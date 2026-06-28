@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diogo Campos Gomes — Mentoria de Transição de Carreira</title>
+<meta name="description" content="Tire sua carreira do modo automático. Mentoria de transição de carreira com método de 6 etapas, fundamentado em teoria e vivido na prática por Diogo Campos Gomes — economista e Líder Ágil na CAIXA há 22 anos.">
+<meta property="og:title" content="Diogo Campos Gomes — Desestacionar sua carreira">
+<meta property="og:description" content="Mentoria de transição de carreira com método de 6 etapas, segura e estruturada.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1A2340;
+    --navy-700:#232d52;
+    --navy-soft:#2b3760;
+    --teal:#0D9488;
+    --teal-bright:#14b8a6;
+    --teal-deep:#0a6f66;
+    --cream:#F7F5F0;
+    --paper:#FBFAF7;
+    --ink:#1A2340;
+    --muted:#5b6480;
+    --line:#e3e0d8;
+    --white:#ffffff;
+    --maxw:1140px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.65;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.08;letter-spacing:-0.01em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .eyebrow{
+    font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--teal-deep);display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--teal)}
+  .eyebrow.light{color:var(--teal-bright)}
+  .eyebrow.light::before{background:var(--teal-bright)}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(251,250,247,.82);backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;transition:border-color .3s,background .3s;
+  }
+  header.nav.scrolled{border-color:var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{font-family:'Fraunces',serif;font-weight:600;font-size:20px;letter-spacing:-.01em}
+  .brand b{color:var(--teal-deep);font-weight:600}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{font-size:15px;font-weight:500;color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--navy)}
+  .nav-cta{
+    font-size:14.5px;font-weight:600;color:var(--white)!important;background:var(--navy);
+    padding:10px 20px;border-radius:999px;transition:background .2s,transform .2s;
+  }
+  .nav-cta:hover{background:var(--teal-deep);transform:translateY(-1px)}
+  .nav-toggle{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px}
+  .nav-toggle span{width:24px;height:2px;background:var(--navy);display:block}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;background:var(--navy);color:#f3f4fb;
+    padding:148px 0 96px;overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(120% 80% at 85% 10%, rgba(13,148,136,.22), transparent 55%);
+    pointer-events:none;
+  }
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+  .hero h1{
+    font-size:clamp(40px,6.4vw,76px);font-weight:600;color:var(--white);
+    margin:22px 0 0;letter-spacing:-.02em;
+  }
+  /* Signature: desestacionar */
+  .signature{display:block;margin-bottom:6px;font-weight:500;position:relative}
+  .static-word{
+    position:relative;color:#8b93b8;font-style:italic;
+  }
+  .static-word::after{
+    content:"";position:absolute;left:-2%;right:-2%;top:54%;height:3px;
+    background:var(--teal-bright);transform:scaleX(0);transform-origin:left;
+    animation:strike 1s cubic-bezier(.7,0,.3,1) .7s forwards;
+  }
+  .move-word{
+    color:var(--white);position:relative;display:inline-block;
+    opacity:0;animation:slidein .9s cubic-bezier(.16,1,.3,1) 1.4s forwards;
+  }
+  @keyframes strike{to{transform:scaleX(1)}}
+  @keyframes slidein{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:translateX(0)}}
+  .hero p.lead{
+    font-size:19px;color:#c4cae0;margin:26px 0 0;max-width:30em;line-height:1.6;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:38px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:16px;
+    padding:15px 28px;border-radius:999px;transition:transform .2s,background .2s,box-shadow .2s;cursor:pointer;border:0;
+  }
+  .btn-primary{background:var(--teal);color:var(--white)}
+  .btn-primary:hover{background:var(--teal-bright);transform:translateY(-2px);box-shadow:0 10px 30px -10px rgba(13,148,136,.6)}
+  .btn-ghost{background:transparent;color:#dfe3f1;border:1px solid rgba(255,255,255,.25)}
+  .btn-ghost:hover{border-color:var(--teal-bright);color:var(--white)}
+  .btn svg{width:17px;height:17px}
+  .hero-photo{position:relative}
+  .hero-photo img{
+    width:100%;border-radius:18px;display:block;
+    box-shadow:0 40px 80px -30px rgba(0,0,0,.6);
+    filter:saturate(1.02);
+  }
+  .photo-tag{
+    position:absolute;bottom:18px;left:18px;right:18px;
+    background:rgba(26,35,64,.72);backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:12px;padding:13px 16px;
+  }
+  .photo-tag strong{display:block;font-size:15px;color:var(--white);font-weight:600}
+  .photo-tag span{font-size:13px;color:#aab2d0}
+
+  .hero-strip{
+    position:relative;margin-top:72px;padding-top:30px;border-top:1px solid rgba(255,255,255,.12);
+    display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  }
+  .hs-item .n{font-family:'Fraunces',serif;font-size:34px;font-weight:600;color:var(--teal-bright);line-height:1}
+  .hs-item .l{font-size:13.5px;color:#aab2d0;margin-top:6px;line-height:1.4}
+
+  /* ---------- SECTION BASE ---------- */
+  section{padding:96px 0}
+  .section-head{max-width:42em;margin-bottom:54px}
+  .section-head h2{font-size:clamp(30px,4vw,46px);font-weight:600;margin-top:18px;color:var(--navy)}
+  .section-head p{font-size:18px;color:var(--muted);margin-top:18px}
+
+  /* ---------- HISTÓRIA ---------- */
+  .historia{background:var(--cream)}
+  .hist-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+  .hist-lead{font-family:'Fraunces',serif;font-size:clamp(24px,3vw,32px);font-weight:500;line-height:1.32;color:var(--navy)}
+  .hist-lead em{color:var(--teal-deep);font-style:italic}
+  .hist-body p{margin-bottom:18px;color:#3b4360}
+  .hist-body p:last-child{margin-bottom:0}
+  .timeline{margin-top:40px;border-left:2px solid var(--line);padding-left:0}
+  .tl-item{position:relative;padding:0 0 26px 28px}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item::before{
+    content:"";position:absolute;left:-7px;top:5px;width:12px;height:12px;border-radius:50%;
+    background:var(--paper);border:2px solid var(--teal)}
+  .tl-item .yr{font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--teal-deep)}
+  .tl-item .role{font-weight:600;font-size:16px;margin-top:2px}
+  .tl-item .dsc{font-size:14.5px;color:var(--muted)}
+
+  /* ---------- PROBLEMA / DADOS ---------- */
+  .problema{background:var(--navy);color:#e9ebf5}
+  .problema .section-head h2{color:var(--white)}
+  .problema .section-head p{color:#b4bbd6}
+  .big-stat{
+    display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;
+    padding:38px 0;border-top:1px solid rgba(255,255,255,.12);
+  }
+  .big-stat:last-of-type{border-bottom:1px solid rgba(255,255,255,.12)}
+  .big-stat .num{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(56px,8vw,92px);color:var(--teal-bright);line-height:.9;min-width:3.4em}
+  .big-stat .txt h3{font-size:21px;font-weight:600;color:var(--white);font-family:'Inter',sans-serif;letter-spacing:0}
+  .big-stat .txt p{font-size:15.5px;color:#b4bbd6;margin-top:6px;max-width:40em}
+  .src{font-size:12.5px;color:#7e87ad;letter-spacing:.03em;margin-top:34px}
+  .insight{
+    margin-top:46px;background:linear-gradient(120deg,var(--teal-deep),var(--teal));
+    border-radius:18px;padding:38px 42px;
+  }
+  .insight p{font-family:'Fraunces',serif;font-size:clamp(22px,2.6vw,30px);font-weight:500;color:var(--white);line-height:1.32;max-width:24em}
+  .insight span{color:#bff3ec}
+
+  /* ---------- SOLUÇÃO / FRAMEWORK ---------- */
+  .solucao{background:var(--paper)}
+  .fw-intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
+  .fw-intro .note{
+    background:var(--cream);border-radius:14px;padding:24px 26px;border:1px solid var(--line);
+  }
+  .fw-intro .note b{color:var(--navy)}
+  .fw-intro .note p{font-size:15px;color:var(--muted);margin-top:6px}
+  .steps{display:grid;gap:0}
+  .step{
+    display:grid;grid-template-columns:96px 1fr;gap:28px;align-items:start;
+    padding:32px 0;border-top:1px solid var(--line);transition:background .25s;
+  }
+  .step:last-child{border-bottom:1px solid var(--line)}
+  .step:hover{background:var(--cream)}
+  .step .idx{font-family:'Fraunces',serif;font-size:46px;font-weight:600;color:var(--teal);line-height:1}
+  .step h3{font-size:21px;font-weight:600;color:var(--navy);font-family:'Fraunces',serif}
+  .step .focus{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.04em;color:var(--teal-deep);text-transform:uppercase;margin-top:4px}
+  .step p{font-size:15.5px;color:#3b4360;margin-top:10px;max-width:46em}
+  .step .base{font-size:13.5px;color:var(--muted);margin-top:10px}
+  .step .base b{color:var(--navy);font-weight:600}
+  .fw-foot{
+    margin-top:44px;display:flex;gap:30px;flex-wrap:wrap;align-items:center;
+    background:var(--navy);color:#dfe3f1;border-radius:16px;padding:30px 36px;
+  }
+  .fw-foot .d{font-family:'Fraunces',serif;font-size:30px;font-weight:600;color:var(--teal-bright);white-space:nowrap}
+  .fw-foot p{font-size:15px;color:#b4bbd6}
+
+  /* ---------- PROVA SOCIAL ---------- */
+  .prova{background:var(--cream)}
+  .cred-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:48px}
+  .cred{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px 22px}
+  .cred .k{font-family:'Fraunces',serif;font-size:34px;font-weight:600;color:var(--navy);line-height:1}
+  .cred .v{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.4}
+  .chan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .chan{
+    background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px;
+    display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s,border-color .2s;
+  }
+  .chan:hover{transform:translateY(-3px);box-shadow:0 16px 40px -22px rgba(26,35,64,.35);border-color:var(--teal)}
+  .chan .tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-deep)}
+  .chan h3{font-size:19px;font-weight:600;color:var(--navy);margin-top:10px;font-family:'Fraunces',serif}
+  .chan p{font-size:14.5px;color:var(--muted);margin-top:8px;flex:1}
+  .chan .go{font-size:14.5px;font-weight:600;color:var(--teal-deep);margin-top:16px;display:inline-flex;align-items:center;gap:6px}
+  .chan .go svg{width:15px;height:15px}
+  .pubs{margin-top:44px;border-top:1px solid var(--line);padding-top:30px}
+  .pubs .lbl{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .pub-list{display:flex;flex-wrap:wrap;gap:10px}
+  .pub{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:13.5px;color:#3b4360}
+
+  /* ---------- CTA ---------- */
+  .cta{background:var(--navy);color:#eef0f8;position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;inset:0;background:radial-gradient(100% 100% at 15% 100%,rgba(13,148,136,.25),transparent 60%)}
+  .cta-inner{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+  .cta h2{font-size:clamp(32px,4.4vw,52px);font-weight:600;color:var(--white)}
+  .cta p{font-size:18px;color:#c4cae0;margin-top:20px;max-width:34em}
+  .cta-actions{margin-top:36px;display:flex;gap:16px;flex-wrap:wrap}
+  .cta-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:34px}
+  .cta-card h3{font-family:'Inter',sans-serif;font-size:16px;font-weight:600;color:var(--white);letter-spacing:0}
+  .cta-list{list-style:none;margin-top:16px;display:grid;gap:12px}
+  .cta-list li{display:flex;gap:12px;font-size:15px;color:#cdd2e6;align-items:flex-start}
+  .cta-list svg{width:18px;height:18px;flex-shrink:0;margin-top:3px;color:var(--teal-bright)}
+
+  /* ---------- FOOTER ---------- */
+  footer.foot{background:#141b33;color:#9aa2c2;padding:54px 0 40px}
+  .foot-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap}
+  .foot .brand{color:var(--white);font-size:22px;margin-bottom:10px}
+  .foot .brand b{color:var(--teal-bright)}
+  .foot .sig{font-family:'Fraunces',serif;font-style:italic;font-size:19px;color:var(--teal-bright);margin-top:4px}
+  .foot-links{display:flex;gap:24px;flex-wrap:wrap}
+  .foot-links a{font-size:14.5px;color:#aab2d0;transition:color .2s}
+  .foot-links a:hover{color:var(--white)}
+  .foot-base{margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#727aa0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:920px){
+    .hero-grid,.hist-grid,.fw-intro,.cta-inner{grid-template-columns:1fr;gap:40px}
+    .hero-photo{order:-1;max-width:420px}
+    .hero-strip{grid-template-columns:repeat(2,1fr);gap:26px}
+    .cred-grid{grid-template-columns:repeat(2,1fr)}
+    .chan-grid{grid-template-columns:1fr}
+    .nav-links{display:none}
+    .nav-links.open{
+      display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;
+      background:var(--paper);border-bottom:1px solid var(--line);padding:20px 28px;gap:18px;align-items:flex-start;
+    }
+    .nav-toggle{display:flex}
+  }
+  @media(max-width:560px){
+    body{font-size:16px}
+    section{padding:72px 0}
+    .wrap{padding:0 20px}
+    .big-stat{grid-template-columns:1fr;gap:6px;text-align:left}
+    .big-stat .num{min-width:0}
+    .hero-strip{grid-template-columns:repeat(2,1fr)}
+    .step{grid-template-columns:1fr;gap:8px}
+    .step .idx{font-size:38px}
+    .fw-foot{flex-direction:column;align-items:flex-start;gap:14px}
+    .cred-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important}
+    .reveal{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+    .static-word::after{transform:scaleX(1)}
+    .move-word{opacity:1}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#topo" class="brand">Diogo <b>Campos Gomes</b></a>
+    <nav class="nav-links" id="menu">
+      <a href="#historia">História</a>
+      <a href="#problema">O problema</a>
+      <a href="#metodo">O método</a>
+      <a href="#prova">Conteúdo</a>
+      <a href="#contato" class="nav-cta">Agendar diagnóstico</a>
+    </nav>
+    <button class="nav-toggle" id="toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="topo">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow light">Mentoria de transição de carreira</span>
+      <h1>
+        <span class="signature"><span class="static-word">Estacionado</span></span>
+        Hora de <span class="move-word">desestacionar</span> sua carreira.
+      </h1>
+      <p class="lead">Tirar você do modo automático e colocar sua carreira em movimento real — com método, sem abrir mão da sua renda e da sua estabilidade antes da hora.</p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn btn-primary">
+          Agendar diagnóstico
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#metodo" class="btn btn-ghost">Conhecer o método</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="assets/diogo.jpg" alt="Diogo Campos Gomes" loading="eager">
+      <div class="photo-tag">
+        <strong>Diogo Campos Gomes</strong>
+        <span>Economista · Líder Ágil na CAIXA · Mentor de carreira</span>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="hero-strip">
+      <div class="hs-item"><div class="n">22 anos</div><div class="l">de carreira na CAIXA, do balcão à liderança</div></div>
+      <div class="hs-item"><div class="n">6 etapas</div><div class="l">método estruturado e fundamentado em teoria</div></div>
+      <div class="hs-item"><div class="n">2020→26</div><div class="l">transição interna e reinvenção documentada</div></div>
+      <div class="hs-item"><div class="n">Lattes</div><div class="l">pesquisador com produção publicada</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTÓRIA -->
+<section class="historia" id="historia">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Quem está do outro lado da mesa</span>
+      <h2>Não é teoria de quem nunca saiu do lugar.</h2>
+    </div>
+    <div class="hist-grid">
+      <div class="reveal">
+        <p class="hist-lead">Comecei como técnico bancário em 2004. Vinte e dois anos depois, sou Líder Ágil na transformação digital da CAIXA. Entre um ponto e outro, <em>me desestacionei na prática</em> — no corpo, na mente e na carreira.</p>
+        <div class="timeline">
+          <div class="tl-item"><div class="yr">2004</div><div class="role">Técnico Bancário · CAIXA</div><div class="dsc">O começo. Atendimento ao cliente como norte.</div></div>
+          <div class="tl-item"><div class="yr">2014–2024</div><div class="role">Gerente de Carteira PJ</div><div class="dsc">Consultor de negócios para micro e pequenas empresas.</div></div>
+          <div class="tl-item"><div class="yr">2022–2024</div><div class="role">Pós-graduações em paralelo</div><div class="dsc">MBAs em Projetos e em Tecnologia/IA, especializações — sem parar de trabalhar.</div></div>
+          <div class="tl-item"><div class="yr">2025–hoje</div><div class="role">Líder Ágil · Transformação Digital</div><div class="dsc">Transição interna concluída — de gestor comercial a agilista.</div></div>
+        </div>
+      </div>
+      <div class="hist-body reveal">
+        <p>Sou economista, 42 anos, de São Paulo. Passei a maior parte da carreira como gerente de carteira PJ — até decidir que não queria envelhecer fazendo a mesma coisa no automático.</p>
+        <p>Em vez de largar tudo, fiz a transição com método: empilhei MBAs em Gestão de Projetos e em Tecnologia com ênfase em IA, especializações em Engenharia Econômica e em Docência Superior, e migrei internamente para a área de transformação digital — sem abrir mão da renda nem da estabilidade. Em paralelo, documentei uma reinvenção física e de hábitos de 2020 a 2026.</p>
+        <p>Hoje pesquiso a interseção entre gestão, tecnologia e inovação (com produção registrada no Lattes) e criei o DEV-nário, um dicionário de desenvolvimento para quem não é da área técnica.</p>
+        <p>Esse percurso virou um método. <b>Desestacionar</b> é tirar o profissional do ponto morto e colocá-lo em movimento de transformação real — com segurança psicológica, clareza e plano. É isso que faço na mentoria.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="problema" id="problema">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow light">A crise silenciosa do trabalho</span>
+      <h2>Querer mudar virou regra. Saber como, não.</h2>
+      <p>Os dados de 2025 são claros: a insatisfação é generalizada, mas a maioria trava na mesma barreira — falta de método e de segurança para dar o primeiro passo.</p>
+    </div>
+
+    <div class="big-stat reveal">
+      <div class="num">70%</div>
+      <div class="txt"><h3>dos profissionais querem mudar de carreira agora</h3><p>Não é um surto isolado: é o estado do mercado. Repensar a carreira deixou de ser exceção e virou condição normal de quem trabalha.</p></div>
+    </div>
+    <div class="big-stat reveal">
+      <div class="num">57%</div>
+      <div class="txt"><h3>travam na falta de segurança financeira</h3><p>A maior barreira de quem quer mudar não é talento — é não ter um plano que torne a transição financeiramente sustentável. Depois vêm "não sei para onde ir" (40%) e "falta qualificação" (37%).</p></div>
+    </div>
+    <div class="big-stat reveal">
+      <div class="num">2×</div>
+      <div class="txt"><h3>mais chances de sucesso com um plano estruturado</h3><p>Quem segue um processo validado tem o dobro de chance de uma transição bem-sucedida. E 67% relatam mais satisfação depois da mudança. Mas cerca de 70% ainda tentam sozinhos, sem metodologia.</p></div>
+    </div>
+    <div class="big-stat reveal">
+      <div class="num">59</div>
+      <div class="txt"><h3>em cada 100 trabalhadores precisarão se requalificar até 2030</h3><p>O WEF chama isso de maior reset de habilidades da história. A janela para se reposicionar está aberta — mas não para sempre.</p></div>
+    </div>
+
+    <p class="src reveal">Fontes: WEF Future of Jobs Report 2025 · Gallup State of the Global Workplace · CAGED/MTE · FlexJobs · Deloitte · LinkedIn — compilados no relatório executivo "A Crise Silenciosa do Trabalho".</p>
+
+    <div class="insight reveal">
+      <p>O problema raramente é falta de vontade. <span>É não ter um caminho seguro para sair do lugar.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUÇÃO / FRAMEWORK -->
+<section class="solucao" id="metodo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">O método</span>
+      <h2>Transição de carreira em 6 etapas.</h2>
+      <p>Um modelo de gestão de projeto aplicado à sua vida profissional. Cada etapa é insumo da próxima — pensado para proteger sua segurança psicológica, financeira e técnica ao longo de todo o caminho.</p>
+    </div>
+
+    <div class="fw-intro">
+      <div class="reveal">
+        <p style="font-size:17px;color:#3b4360;max-width:34em">As etapas são sequenciais por um motivo: pular o autoconhecimento leva você a escolher o alvo errado; pular o planejamento financeiro força você a aceitar a primeira oferta por necessidade. A velocidade muda de pessoa para pessoa — a ordem, não.</p>
+      </div>
+      <div class="note reveal">
+        <b>Fundamentação acadêmica</b>
+        <p>Construído sobre teorias consagradas de carreira: Construção de Carreira e Adaptabilidade (Savickas), Âncoras de Carreira (Schein), Tipologia Vocacional (Holland), Autoeficácia (Bandura) e as tendências da força de trabalho do Fórum Econômico Mundial.</p>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div class="idx">01</div>
+        <div><h3>O Ponto de Partida</h3><span class="focus">Segurança psicológica & autoconhecimento</span>
+        <p>Entender o momento atual: motivações reais, valores inegociáveis e as habilidades que você já carrega e ainda não enxerga como ativo.</p>
+        <div class="base"><b>Base:</b> Âncoras de Carreira (Schein) · Tipologia RIASEC (Holland) · Habilidades transferíveis</div></div>
+      </div>
+      <div class="step reveal">
+        <div class="idx">02</div>
+        <div><h3>O Mercado-Alvo</h3><span class="focus">Informação estratégica & realismo</span>
+        <p>Sair da introspecção e validar a hipótese de carreira com dados reais: demanda, faixas salariais, lacunas e conversas com quem já vive a nova área.</p>
+        <div class="base"><b>Base:</b> Exploração de Carreira (Super) · Aprendizagem Social (Krumboltz)</div></div>
+      </div>
+      <div class="step reveal">
+        <div class="idx">03</div>
+        <div><h3>O Mapa da Jornada</h3><span class="focus">Planejamento & mensurabilidade</span>
+        <p>Transformar intenção em plano: metas SMART, marcos com prazo e pontos de revisão que impedem a estagnação.</p>
+        <div class="base"><b>Base:</b> Metodologia SMART · PDI · Senso de Controle (Savickas)</div></div>
+      </div>
+      <div class="step reveal">
+        <div class="idx">04</div>
+        <div><h3>Desenvolvimento & Qualificação</h3><span class="focus">Competência & experiência</span>
+        <p>Fechar as lacunas que importam — hard skills, soft skills e experiência prática via projetos — para chegar competitivo na nova área.</p>
+        <div class="base"><b>Base:</b> Hard/Soft Skills (WEF) · Aprendizagem Experiencial (Kolb)</div></div>
+      </div>
+      <div class="step reveal">
+        <div class="idx">05</div>
+        <div><h3>Planejamento Financeiro</h3><span class="focus">Resiliência & redução do estresse</span>
+        <p>Construir a reserva de oportunidade que dá poder de negociar e recusar propostas ruins. É o pilar que tira a pressão das decisões.</p>
+        <div class="base"><b>Base:</b> Reserva de oportunidade · Finanças Comportamentais (Kahneman, Thaler)</div></div>
+      </div>
+      <div class="step reveal">
+        <div class="idx">06</div>
+        <div><h3>A Ação</h3><span class="focus">Recolocação & mentalidade de crescimento</span>
+        <p>Posicionar-se no mercado, executar a busca e adaptar o plano com confiança. O processo não termina na contratação — evolui com você.</p>
+        <div class="base"><b>Base:</b> Adaptabilidade de Carreira (Savickas) · Autoeficácia (Bandura)</div></div>
+      </div>
+    </div>
+
+    <div class="fw-foot reveal">
+      <div class="d">6 meses a 2 anos</div>
+      <p>Duração típica de uma transição segura e consciente, do ponto de partida à ação. Movimentos laterais costumam levar de 6 a 12 meses; mudanças radicais, de 12 a 24. A distância entre onde você está e onde quer chegar define o ritmo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROVA SOCIAL -->
+<section class="prova" id="prova">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Credibilidade & conteúdo</span>
+      <h2>Quem fala, fala de onde viveu.</h2>
+      <p>Autoridade construída na prática, na academia e no compartilhamento aberto de conhecimento.</p>
+    </div>
+
+    <div class="cred-grid">
+      <div class="cred reveal"><div class="k">4</div><div class="v">pós-graduações: MBAs em Projetos e em Tecnologia/IA + especializações em Engenharia Econômica e Docência Superior</div></div>
+      <div class="cred reveal"><div class="k">CEA</div><div class="v">Certificação de Especialista ANBIMA, válida até 2027</div></div>
+      <div class="cred reveal"><div class="k">M3.0</div><div class="v">Management 3.0 · Scrum · Kanban · Lean · SAFe 6.0</div></div>
+      <div class="cred reveal"><div class="k">15+</div><div class="v">artigos e publicações de divulgação registrados no Lattes</div></div>
+    </div>
+
+    <div class="chan-grid">
+      <a href="https://www.linkedin.com/in/diogo-campos-g" target="_blank" rel="noopener" class="chan reveal">
+        <span class="tag">Canal principal</span>
+        <h3>LinkedIn</h3>
+        <p>Conteúdo semanal sobre carreira, liderança, agilidade e economia. É onde a conversa acontece e onde acompanho de perto quem está em transição.</p>
+        <span class="go">Seguir o perfil <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+      <a href="https://diogo-dcg.hotmart.host/dev-nario-o-dicionario-de-desenvolvimento-para-nao-dev-s-2c779fef-14bf-4990-818f-15893a846477" target="_blank" rel="noopener" class="chan reveal">
+        <span class="tag">Projeto autoral</span>
+        <h3>DEV-nário</h3>
+        <p>O dicionário de desenvolvimento para quem não é da área técnica. Traduz o vocabulário da transformação digital para profissionais de qualquer origem.</p>
+        <span class="go">Conhecer o projeto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+      <a href="http://lattes.cnpq.br/5504331055541504" target="_blank" rel="noopener" class="chan reveal">
+        <span class="tag">Pesquisa</span>
+        <h3>Currículo Lattes</h3>
+        <p>Produção acadêmica na interseção entre gestão, tecnologia e inovação — incluindo artigo sobre fluência digital na era da IA generativa.</p>
+        <span class="go">Ver o currículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+    </div>
+
+    <div class="pubs reveal">
+      <div class="lbl">Alguns temas que escrevo</div>
+      <div class="pub-list">
+        <span class="pub">Motivação 3.0 e o Ágil</span>
+        <span class="pub">O Professor, a Estratégia e o Jogo Invisível</span>
+        <span class="pub">Geração Z e o mercado de trabalho</span>
+        <span class="pub">Capacitação e transformação organizacional</span>
+        <span class="pub">Curva de aprendizado e Pirâmide de Glasser</span>
+        <span class="pub">Letramento digital à fluência na era da IA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contato">
+  <div class="wrap cta-inner">
+    <div class="reveal">
+      <span class="eyebrow light">O primeiro passo</span>
+      <h2>Vamos mapear seu ponto de partida.</h2>
+      <p>Um diagnóstico de 45 minutos: uma conversa estruturada para entender seu momento, identificar o que é inegociável para você e mapear o que trava e o que apoia a sua mudança. Você sai com clareza — independentemente de continuarmos juntos depois.</p>
+      <div class="cta-actions">
+        <a href="mailto:diogo.dcg@gmail.com?subject=Quero%20agendar%20um%20diagn%C3%B3stico%20de%20carreira" class="btn btn-primary">
+          Agendar meu diagnóstico
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/diogo-campos-g" target="_blank" rel="noopener" class="btn btn-ghost">Falar pelo LinkedIn</a>
+      </div>
+    </div>
+    <div class="cta-card reveal">
+      <h3>O que acontece na sessão</h3>
+      <ul class="cta-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg>Conversa estruturada, sem julgamento — não é avaliação clínica</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg>Identificação dos seus valores inegociáveis de carreira</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg>Mapa do que impulsiona e do que trava a sua mudança</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg>Um próximo passo concreto para sair do automático</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">Diogo <b>Campos Gomes</b></div>
+        <div style="font-size:14.5px;max-width:24em">Economista · Líder Ágil na CAIXA · Mentor de transição de carreira. São Paulo, Brasil.</div>
+        <div class="sig">Forte abraço!</div>
+      </div>
+      <div class="foot-links">
+        <a href="#historia">História</a>
+        <a href="#problema">O problema</a>
+        <a href="#metodo">O método</a>
+        <a href="#prova">Conteúdo</a>
+        <a href="https://www.linkedin.com/in/diogo-campos-g" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:diogo.dcg@gmail.com">Contato</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© <span id="ano"></span> Diogo Campos Gomes. Todos os direitos reservados.</span>
+      <span>Mentoria e desenvolvimento profissional — não constitui avaliação psicológica ou diagnóstico clínico.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ano
+  document.getElementById('ano').textContent = new Date().getFullYear();
+  // nav scroll
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>16));
+  // menu mobile
+  const toggle=document.getElementById('toggle'),menu=document.getElementById('menu');
+  toggle.addEventListener('click',()=>menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+  // reveal
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
