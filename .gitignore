@@ -1,12 +1,57 @@
-# Sistema
+# === Sistema operacional ===
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 Thumbs.db
+ehthumbs.db
 desktop.ini
 
-# Editor
+# === Editor / IDE ===
 .vscode/
+.idea/
 *.code-workspace
+*.swp
+*.swo
 
-# Logs e temporários
+# === Logs e temporários ===
 *.log
+npm-debug.log*
+yarn-error.log*
+.cache/
+tmp/
+temp/
+
+# === Dependências ===
 node_modules/
+
+# === Segredos e credenciais (NUNCA versionar) ===
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+*.cer
+*.crt
+secrets.json
+credentials.json
+*-credentials.json
+*.secret
+.npmrc
+
+# === Cloud / infraestrutura ===
+.terraform/
+*.tfstate
+*.tfstate.*
+.aws/
+azure.json
+serviceAccountKey.json
+
+# === Build (caso o projeto cresça) ===
+dist/
+build/
+.next/
+out/
