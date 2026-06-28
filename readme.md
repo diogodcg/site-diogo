@@ -7,9 +7,7 @@ Site pessoal e de autoridade de **Diogo Campos Gomes** — economista, Líder Á
 ## 🔗 Site no ar
 
 Depois de publicar, o site fica disponível em:
-`https://SEU-USUARIO.github.io/site-diogo`
-
-*(troque `SEU-USUARIO` e o nome do repositório pelos seus)*
+`https://diogodcg.github.io/site-diogo`
 
 ## 📁 Estrutura
 
