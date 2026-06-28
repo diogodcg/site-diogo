@@ -59,4 +59,4 @@ Abra a pasta no VS Code e dê dois cliques no `index.html` para visualizar no na
 
 *Mentoria e desenvolvimento profissional. Não constitui avaliação psicológica ou diagnóstico clínico.*
 
-Forte abraço!
+Forte abraço a todos!
